@@ -10,10 +10,10 @@ addCart.addEventListener("click", () => {
 
 function renderForm(){
     return containerInput.innerHTML = `
-    <form class="form-añadir--tarjeta">
+    <form class="form-crear--tarjeta">
         <input type="text" class="input-agregar--tarjeta" placeholder="Agregue una nueva tarea...">
         <div>
-            <button type="button" class="btn-crear--tarjeta">Añadir tarjeta</button>
+            <button type="submit" class="btn-crear--tarjeta">Añadir tarjeta</button>
             <button type="button" class="btn-cancelar">Cancelar</button>
         </div>
     </form>
@@ -21,11 +21,12 @@ function renderForm(){
 }
 
 function eventoForm(){
-    const btnAgregarTarjeta = document.querySelector(".btn-crear--tarjeta")
+    const formCrearTarjeta = document.querySelector(".form-crear--tarjeta")
     const btnCancelar = document.querySelector(".btn-cancelar")
     const inputAgregarTarjeta = document.querySelector(".input-agregar--tarjeta")
     
-    btnAgregarTarjeta.addEventListener("click", () => {
+    formCrearTarjeta.addEventListener("submit", (e) => {
+        e.preventDefault()
         const tarea = inputAgregarTarjeta.value.trim()
         if(tarea){
             renderCard(tarea)
