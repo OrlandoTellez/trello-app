@@ -46,8 +46,24 @@ function renderCard(tarea){
     const nuevaTarjeta = document.createElement("div")
     nuevaTarjeta.classList.add("card")
     nuevaTarjeta.innerHTML = `
-        <h3>${tarea}</h3>
+        <article>
+            <h3>${tarea}</h3>
+        </article>
+        <div>
+            <img class="icono-editar" src="/assets/icons/edit.svg" alt="edit-icon">
+            <img class="icono-borrar" src="/assets/icons/trash.svg" alt="delete-icon">
+        </div>
     `
+
+
+    const iconoEditar = nuevaTarjeta.querySelector(".icono-editar")
+    const iconoBorrar = nuevaTarjeta.querySelector(".icono-borrar")
+
+    iconoBorrar.addEventListener("click", () => {
+        columna.removeChild(nuevaTarjeta)
+    })
+
     columna.appendChild(nuevaTarjeta)
+
 }
 
