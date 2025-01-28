@@ -1,0 +1,39 @@
+:root {
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-primary: #0079bf;
+    --color-secondary: #5e6c84;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-family: Arial, sans-serif;
+}
+
+.column {
+    background-color: #ebecf0;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    min-width: 300px;
+}
+
+.task-card {
+    background-color: var(--color-white);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+}
+
+.task-card:hover {
+    background-color: #f4f5f7;
+}
