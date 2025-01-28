@@ -1,14 +1,22 @@
 const addCart = document.querySelector(".add-card")
 const containerInput = document.querySelector(".container-input")
+const inputAñadirTarjeta = document.querySelector(".input-agregar--tarjeta")
 
 addCart.addEventListener("click", (e) => {
     e.preventDefault()
-    agregarTarjeta()
+    addCart.style.display = "none"
+    renderForm()
 })
 
-function agregarTarjeta(){
+function renderForm(){
     return containerInput.innerHTML = `
-        <input type="text" placeholder="Agregue una nueva tarea...">
+    <form class="form-añadir--tarjeta">
+        <input type="text" class="input-agregar--tarjeta" placeholder="Agregue una nueva tarea...">
+        <div>
+            <button class="add-card">Añdir tarjeta</button>
+            <button class="btn-cancelar">Cancelar</button>
+        </div>
+    </form>
     `
 }
 

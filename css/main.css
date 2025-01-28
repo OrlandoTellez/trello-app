@@ -25,3 +25,17 @@ input[type="text"]{
   border-radius: 8px;
   color: white;
 }
+
+.btn-cancelar{
+  background-color: red;
+  border: 2px dashed white;
+  color: #ccc;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancelar{
+  background
+}

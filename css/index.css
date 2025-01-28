@@ -52,6 +52,21 @@
   color: #fff;
 }
 
+.form-añadir--tarjeta{
+  width: 100%;
+  display: grid;
+  gap: 15px;
+  && div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    && button{
+      width: 100%;
+    }
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .board {
     flex-direction: row;
