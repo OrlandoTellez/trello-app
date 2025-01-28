@@ -14,6 +14,11 @@ body {
   background-color: var(--color-black);
   color: var(--color-white);
   padding: 20px;
+  width: 100%;
+
+  && div{
+    width: 100%;
+  }
 }
 
 
@@ -27,7 +32,7 @@ input[type="text"]{
 }
 
 .btn-cancelar{
-  background-color: red;
+  background-color: #C30E59;
   border: 2px dashed white;
   color: #ccc;
   padding: 10px;
@@ -36,6 +41,6 @@ input[type="text"]{
   cursor: pointer;
 }
 
-.btn-cancelar{
-  background
+.btn-cancelar:hover{
+  background-color: #BE3144;
 }
