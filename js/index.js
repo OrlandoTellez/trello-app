@@ -1,6 +1,5 @@
 const addCart = document.querySelector(".add-card")
 const containerInput = document.querySelector(".container-input")
-const inputAñadirTarjeta = document.querySelector(".input-agregar--tarjeta")
 const columna = document.querySelector(".column")
 
 addCart.addEventListener("click", () => {
@@ -25,18 +24,28 @@ function renderForm(){
 
 function eventoForm(){
     const btnAgregarTarjeta = document.querySelector(".btn-crear--tarjeta")
-
+    const btnCancelar = document.querySelector(".btn-cancelar")
+    const inputAñadirTarjeta = document.querySelector(".input-agregar--tarjeta")
+    
     btnAgregarTarjeta.addEventListener("click", () => {
-        renderCard()
+        const tarea = inputAñadirTarjeta.value.trim()
+        if(tarea){
+            renderCard()
+            containerInput.innerHTML = "";
+            addCart.style.display = "block"
+        }else{
+            alert("Por favor escriba una tarea")
+        }
     })
 }
 
 function renderCard(){
-    return columna.innerHTML = `
-    <div class="card">
+    const nuevaTarjeta = document.createElement("div")
+    nuevaTarjeta.classList.add("card")
+    nuevaTarjeta.innerHTML = `
         <h3>Fix layout: User-Detail Page</h3>
         <p>Sketch attached</p>
-    </div>
     `
+    columna.appendChild(nuevaTarjeta)
 }
 
