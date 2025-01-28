@@ -30,7 +30,7 @@ function eventoForm(){
     btnAgregarTarjeta.addEventListener("click", () => {
         const tarea = inputAñadirTarjeta.value.trim()
         if(tarea){
-            renderCard()
+            renderCard(tarea)
             containerInput.innerHTML = "";
             addCart.style.display = "block"
         }else{
@@ -39,12 +39,11 @@ function eventoForm(){
     })
 }
 
-function renderCard(){
+function renderCard(tarea){
     const nuevaTarjeta = document.createElement("div")
     nuevaTarjeta.classList.add("card")
     nuevaTarjeta.innerHTML = `
-        <h3>Fix layout: User-Detail Page</h3>
-        <p>Sketch attached</p>
+        <h3>${tarea}</h3>
     `
     columna.appendChild(nuevaTarjeta)
 }
