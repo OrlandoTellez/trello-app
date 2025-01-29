@@ -24,15 +24,15 @@ function renderFormCreate(){
 function renderFormEdit(tarea){
     return containerEdit.innerHTML = `
         <form class="form-edit--tarjeta">
-                        <div class="edit">
-                            <input type="text" placeholder="Edite el titulo" value="${tarea}">
-                            <textarea placeholder="Agregue una descripcion"></textarea>
-                        </div>
-                        <div class="buttons-edit">
-                            <button type="submit" class="btn-guardar--cambios">Save</button>
-                            <button type="button" class="btn-cancelar">Cancel</button>
-                        </div>
-                    </form>
+            <div class="edit">
+                <input type="text" placeholder="Edite el titulo" value="${tarea}">
+                <textarea placeholder="Agregue una descripcion"></textarea>
+            </div>
+            <div class="buttons-edit">
+                <button type="submit" class="btn-guardar--cambios">Save</button>
+                <button type="button" class="btn-cancelar">Cancel</button>
+            </div>
+        </form>
     `
 }
 
@@ -81,7 +81,16 @@ function renderCard(tarea){
     })
 
     iconoEditar.addEventListener("click", () => {
+        nuevaTarjeta.style.display = "none"
         renderFormEdit(tarea)
+
+        const btnCancelar = document.querySelector(".btn-cancelar")
+        
+        btnCancelar.addEventListener("click", () => {
+            containerEdit.innerHTML = ""
+            nuevaTarjeta.style.display = "flex"
+        })
+
     })
 
     columna.appendChild(nuevaTarjeta)
