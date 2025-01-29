@@ -1,14 +1,15 @@
 const addCart = document.querySelector(".add-card")
 const containerInput = document.querySelector(".container-input")
 const columna = document.querySelector(".column")
+const containerEdit = document.querySelector(".container-edit")
 
 addCart.addEventListener("click", () => {
     addCart.style.display = "none"
-    renderForm()
+    renderFormCreate()
     eventoForm()
 })
 
-function renderForm(){
+function renderFormCreate(){
     return containerInput.innerHTML = `
     <form class="form-crear--tarjeta">
         <input type="text" class="input-agregar--tarjeta" placeholder="Agregue una nueva tarea...">
@@ -17,6 +18,21 @@ function renderForm(){
             <button type="button" class="btn-cancelar">Cancelar</button>
         </div>
     </form>
+    `
+}
+
+function renderFormEdit(tarea){
+    return containerEdit.innerHTML = `
+        <form class="form-edit--tarjeta">
+                        <div class="edit">
+                            <input type="text" placeholder="Edite el titulo" value="${tarea}">
+                            <textarea placeholder="Agregue una descripcion"></textarea>
+                        </div>
+                        <div class="buttons-edit">
+                            <button type="submit" class="btn-guardar--cambios">Save</button>
+                            <button type="button" class="btn-cancelar">Cancel</button>
+                        </div>
+                    </form>
     `
 }
 
@@ -62,6 +78,10 @@ function renderCard(tarea){
 
     iconoBorrar.addEventListener("click", () => {
         columna.removeChild(nuevaTarjeta)
+    })
+
+    iconoEditar.addEventListener("click", () => {
+        renderFormEdit(tarea)
     })
 
     columna.appendChild(nuevaTarjeta)
