@@ -31,9 +31,19 @@ input[type="text"]{
   color: white;
 }
 
+textarea{
+  width: 100%;
+  min-height: 150px;
+  background-color: #3a3a3a;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
 .btn-cancelar{
   background-color: #C30E59;
-  border: 2px dashed white;
+  border: 2px dashed black;
   color: #ccc;
   padding: 10px;
   text-align: center;
@@ -44,3 +54,5 @@ input[type="text"]{
 .btn-cancelar:hover{
   background-color: #BE3144;
 }
+
+
