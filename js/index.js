@@ -7,48 +7,52 @@ addCart.addEventListener("click", () => {
     addCart.style.display = "none"
     renderFormCreate()
     eventoForm()
-})
+});
 
-function renderFormCreate(){
-    return containerInput.innerHTML = `
+function renderFormCreate() {
+    return (containerInput.innerHTML = `
     <form class="form-crear--tarjeta">
         <input type="text" class="input-agregar--tarjeta" placeholder="Agregue una nueva tarea...">
+        <textarea class="text-area--agregar" placeholder="Agregue una descripción"></textarea>
         <div>
             <button type="submit" class="btn-crear--tarjeta">Añadir tarjeta</button>
             <button type="button" class="btn-cancelar">Cancelar</button>
         </div>
     </form>
-    `
+    `)
 }
 
-function renderFormEdit(tarea){
-    return containerEdit.innerHTML = `
+function renderFormEdit(titulo, descripcion) {
+    return (containerEdit.innerHTML = `
         <form class="form-edit--tarjeta">
             <div class="edit">
-                <input type="text" placeholder="Edite el titulo" value="${tarea}">
-                <textarea placeholder="Agregue una descripcion"></textarea>
+                <input class="input-tarea--edit" type="text" value="${titulo}" placeholder="Edite el titulo">
+                <textarea class="text-area--descripcion" placeholder="Agregue una descripcion">${descripcion}</textarea>
             </div>
             <div class="buttons-edit">
                 <button type="submit" class="btn-guardar--cambios">Save</button>
                 <button type="button" class="btn-cancelar">Cancel</button>
             </div>
         </form>
-    `
+    `)
 }
 
-function eventoForm(){
+function eventoForm() {
     const formCrearTarjeta = document.querySelector(".form-crear--tarjeta")
     const btnCancelar = document.querySelector(".btn-cancelar")
     const inputAgregarTarjeta = document.querySelector(".input-agregar--tarjeta")
-    
+    const textAreaAgregar = document.querySelector(".text-area--agregar")
+
     formCrearTarjeta.addEventListener("submit", (e) => {
         e.preventDefault()
         const tarea = inputAgregarTarjeta.value.trim()
-        if(tarea){
-            renderCard(tarea)
-            containerInput.innerHTML = "";
+        const descripcion = textAreaAgregar.value.trim()
+
+        if (tarea) {
+            renderCard(tarea, descripcion)
+            containerInput.innerHTML = ""
             addCart.style.display = "block"
-        }else{
+        } else {
             alert("Por favor escriba una tarea")
         }
     })
@@ -56,15 +60,16 @@ function eventoForm(){
     btnCancelar.addEventListener("click", () => {
         containerInput.innerHTML = ""
         addCart.style.display = "block"
-    })
+    });
 }
 
-function renderCard(tarea){
+function renderCard(tarea, descripcion = "") {
     const nuevaTarjeta = document.createElement("div")
     nuevaTarjeta.classList.add("card")
     nuevaTarjeta.innerHTML = `
         <article>
-            <h3>${tarea}</h3>
+            <h3 class="titulo-tarea">${tarea}</h3>
+            <p class="descripcion-tarea">${descripcion}</p>
         </article>
         <div>
             <img class="icono-editar" src="/assets/icons/edit.svg" alt="edit-icon">
@@ -72,28 +77,37 @@ function renderCard(tarea){
         </div>
     `
 
-
     const iconoEditar = nuevaTarjeta.querySelector(".icono-editar")
     const iconoBorrar = nuevaTarjeta.querySelector(".icono-borrar")
+    const tituloTareaContainer = nuevaTarjeta.querySelector(".titulo-tarea")
+    const descripcionTareaContainer = nuevaTarjeta.querySelector(".descripcion-tarea")
 
     iconoBorrar.addEventListener("click", () => {
         columna.removeChild(nuevaTarjeta)
-    })
+    });
 
     iconoEditar.addEventListener("click", () => {
         nuevaTarjeta.style.display = "none"
-        renderFormEdit(tarea)
+        renderFormEdit(tituloTareaContainer.textContent, descripcionTareaContainer.textContent)
 
+        const formularioEdit = document.querySelector(".form-edit--tarjeta")
+        const inputTarea = document.querySelector(".input-tarea--edit")
+        const textAreaDescripcion = document.querySelector(".text-area--descripcion")
         const btnCancelar = document.querySelector(".btn-cancelar")
-        
+
+        formularioEdit.addEventListener("submit", (e) => {
+            e.preventDefault()
+            containerEdit.innerHTML = ""
+            tituloTareaContainer.textContent = inputTarea.value
+            descripcionTareaContainer.textContent = textAreaDescripcion.value
+            nuevaTarjeta.style.display = "flex"
+        });
+
         btnCancelar.addEventListener("click", () => {
             containerEdit.innerHTML = ""
             nuevaTarjeta.style.display = "flex"
-        })
-
-    })
+        });
+    });
 
     columna.appendChild(nuevaTarjeta)
-
 }
-
