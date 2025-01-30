@@ -8,7 +8,7 @@ section{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
   overflow-x: auto;
   width: 100%;
@@ -141,13 +141,18 @@ section{
 
 @media only screen and (min-width: 1024px) {
   .board {
-    flex-direction: row;
+    flex-direction: row; 
     align-items: flex-start;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: auto; 
+    width: 100%;
   }
 
   .column{
-    max-width: 300px;
+    flex: 0 0 auto; 
+    min-width: 280px; 
+    max-width: 300px; 
 
   }
 }
