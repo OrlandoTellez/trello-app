@@ -15,10 +15,16 @@ body {
   color: var(--color-white);
   padding: 20px;
   width: 100%;
+  display: grid;
+  place-items: center;
+  
+}
 
-  && div{
-    width: 100%;
-  }
+.app-container{
+  width: 100%;
+  max-width: 500px;
+  display: grid;
+  place-items: center;
 }
 
 
