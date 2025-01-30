@@ -20,6 +20,13 @@ section{
   width: 100%;
   flex-direction: column;
   gap: 15px;
+
+  && .article-text{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .column h2 {

@@ -9,13 +9,17 @@ function renderLista() {
     const div = document.createElement("div")
     div.classList.add("column")
     div.innerHTML = `
-        <h2>To do</h2>
+        <article class="article-text">
+            <h2>To do</h2>
+            <img class="icono-borrar" src="/assets/icons/trash.svg" alt="delete-icon">
+        </article>
         <div class="container-edit"></div>
         <div class="container-input"></div>
         <button class="add-card">Add card</button>
     `
     tablero.appendChild(div)
 
+    const iconoBorrar = div.querySelector(".icono-borrar")
     const containerEdit = div.querySelector(".container-edit")
     const containerInput = div.querySelector(".container-input")
     const addCart = div.querySelector(".add-card")
@@ -23,6 +27,10 @@ function renderLista() {
     addCart.addEventListener("click", () => {
         addCart.style.display = "none"
         renderFormCreate(containerInput, addCart)
+    })
+
+    iconoBorrar.addEventListener("click", () => {
+        tablero.removeChild(div)
     })
 
     div.dataset.columnRef = true
