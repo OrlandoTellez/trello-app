@@ -1,3 +1,8 @@
+section{
+  width: 100%;
+  background: red;
+}
+
 .board {
   display: flex;
   flex-direction: column;
@@ -105,29 +110,9 @@
   }
 }
 
-.btn-crear--tarjeta {
-  background-color: #444;
-  border: 2px dashed #666;
-  color: #ccc;
-  padding: 10px;
-  text-align: center;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 .btn-crear--tarjeta:hover {
   background-color: #555;
   color: #fff;
-}
-
-.btn-guardar--cambios{
-  background-color: #4DA1A9;
-  border: 2px dashed #666;
-  color: #ccc;
-  padding: 10px;
-  text-align: center;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
 @media only screen and (min-width: 1024px) {
