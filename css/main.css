@@ -37,6 +37,21 @@ input[type="text"]{
   color: white;
 }
 
+textarea{
+  width: 100%;
+  max-width: 200px;
+  min-width: 100%;
+  max-height: 400px;
+  min-height: 100%;
+
+
+  background-color: #3a3a3a;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
 button{
   background-color: #4DA1A9;
   border: 2px dashed #666;
@@ -45,16 +60,6 @@ button{
   text-align: center;
   border-radius: 8px;
   cursor: pointer;
-}
-
-textarea{
-  width: 100%;
-  min-height: 150px;
-  background-color: #3a3a3a;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  color: white;
 }
 
 .btn-cancelar{
