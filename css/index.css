@@ -1,11 +1,13 @@
 section{
   width: 100%;
   display: grid;
+  max-width: 500px;
 }
 
 .board {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   overflow-x: auto;
@@ -20,12 +22,19 @@ section{
   width: 100%;
   flex-direction: column;
   gap: 15px;
+  max-width: 100%;
 
   && .article-text{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+      && h2{
+        margin: 0;
+        line-height: 1; 
+      }
+    }
   }
 }
 
@@ -124,6 +133,12 @@ section{
 @media only screen and (min-width: 1024px) {
   .board {
     flex-direction: row;
+    align-items: flex-start;
     gap: 10px;
+  }
+
+  .column{
+    max-width: 300px;
+
   }
 }

@@ -22,7 +22,6 @@ body {
 
 .app-container{
   width: 100%;
-  max-width: 500px;
   display: grid;
   place-items: center;
   gap: 30px
@@ -76,4 +75,7 @@ textarea{
   cursor: pointer;
 }
 
+.icono-editar{
+  cursor: pointer;
+}
 

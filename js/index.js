@@ -5,12 +5,13 @@ btnLista.addEventListener("click", () => {
     renderLista()
 })
 
-function renderLista() {
+function renderLista(nombreLista = "Nueva lista") {
     const div = document.createElement("div")
     div.classList.add("column")
     div.innerHTML = `
         <article class="article-text">
-            <h2>To do</h2>
+                
+                <h2>${nombreLista}</h2>
             <img class="icono-borrar" src="/assets/icons/trash.svg" alt="delete-icon">
         </article>
         <div class="container-edit"></div>
