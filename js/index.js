@@ -2,12 +2,32 @@ const addCart = document.querySelector(".add-card")
 const containerInput = document.querySelector(".container-input")
 const columna = document.querySelector(".column")
 const containerEdit = document.querySelector(".container-edit")
+const btnLista = document.querySelector(".btn-agregar--lista")
+const tablero = document.querySelector(".board")
+
+btnLista.addEventListener("click", () => {
+    renderLista()
+})
 
 addCart.addEventListener("click", () => {
     addCart.style.display = "none"
     renderFormCreate()
     eventoForm()
 });
+
+function renderLista(){
+    const div = document.createElement("div")
+    div.classList.add("column")
+    div.innerHTML = `
+    <h2>To do</h2>
+        <div class="container-edit"></div>
+        <div class="container-input"></div>
+    <button class="add-card">Add card</button>
+    `
+    tablero.appendChild(div)
+
+    
+}
 
 function renderFormCreate() {
     return (containerInput.innerHTML = `
@@ -76,7 +96,7 @@ function renderCard(tarea, descripcion = "") {
             <img class="icono-borrar" src="/assets/icons/trash.svg" alt="delete-icon">
         </div>
     `
-
+    
     const iconoEditar = nuevaTarjeta.querySelector(".icono-editar")
     const iconoBorrar = nuevaTarjeta.querySelector(".icono-borrar")
     const tituloTareaContainer = nuevaTarjeta.querySelector(".titulo-tarea")
@@ -111,3 +131,4 @@ function renderCard(tarea, descripcion = "") {
 
     columna.appendChild(nuevaTarjeta)
 }
+

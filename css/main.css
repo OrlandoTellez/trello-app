@@ -25,6 +25,7 @@ body {
   max-width: 500px;
   display: grid;
   place-items: center;
+  gap: 30px
 }
 
 
