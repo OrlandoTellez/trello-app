@@ -37,19 +37,25 @@ input[type="text"]{
   color: white;
 }
 
+input[type="text"]:focus{
+  outline: 1px solid gray;
+}
+
 textarea{
   width: 100%;
   max-width: 200px;
   min-width: 100%;
   max-height: 400px;
-  min-height: 100%;
-
-
+  min-height: 150px;
   background-color: #3a3a3a;
   border: none;
   padding: 10px;
   border-radius: 8px;
   color: white;
+}
+
+textarea:focus{
+  outline: 1px solid gray;
 }
 
 button{
