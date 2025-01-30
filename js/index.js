@@ -1,7 +1,9 @@
+import { EVENT_CLICK, EVENT_SUBMIT, EVENT_BLUR, EVENT_KEYPRESS } from "./utils/consts.js"
+
 const btnLista = document.querySelector(".btn-agregar--lista")
 const tablero = document.querySelector(".board")
 
-btnLista.addEventListener("click", () => {
+btnLista.addEventListener(EVENT_CLICK, () => {
     renderLista()
 })
 
@@ -27,7 +29,7 @@ function renderLista(nombreLista = "Nueva lista") {
     const editNameLista = div.querySelector(".edit-name--lista")
     const inputEdit = div.querySelector(".input-edit")
 
-    editNameLista.addEventListener("click", () => {
+    editNameLista.addEventListener(EVENT_CLICK, () => {
         inputEdit.style.display = "block"
         inputEdit.value = editNameLista.textContent
         editNameLista.style.display = "none"
@@ -35,7 +37,7 @@ function renderLista(nombreLista = "Nueva lista") {
         inputEdit.select()
     })
 
-    inputEdit.addEventListener("keypress", (e) => {
+    inputEdit.addEventListener(EVENT_KEYPRESS, (e) => {
         if (e.key === "Enter") {
             e.preventDefault()
             editNameLista.textContent = inputEdit.value.trim() || "Nueva lista"
@@ -44,18 +46,18 @@ function renderLista(nombreLista = "Nueva lista") {
         }
     })
 
-    inputEdit.addEventListener("blur", () => {
+    inputEdit.addEventListener(EVENT_BLUR, () => {
         editNameLista.textContent = inputEdit.value.trim() || "Nueva lista"
         inputEdit.style.display = "none"
         editNameLista.style.display = "block"
     })
 
-    addCart.addEventListener("click", () => {
+    addCart.addEventListener(EVENT_CLICK, () => {
         addCart.style.display = "none"
         renderFormCreate(containerInput, addCart)
     })
 
-    iconoBorrar.addEventListener("click", () => {
+    iconoBorrar.addEventListener(EVENT_CLICK, () => {
         tablero.removeChild(div)
     })
 
@@ -84,7 +86,7 @@ function eventoForm(containerInput, btnAddCard) {
     const inputAgregarTarjeta = containerInput.querySelector(".input-agregar--tarjeta")
     const textAreaAgregar = containerInput.querySelector(".text-area--agregar")
 
-    formCrearTarjeta.addEventListener("submit", (e) => {
+    formCrearTarjeta.addEventListener(EVENT_SUBMIT, (e) => {
         e.preventDefault()
         const tarea = inputAgregarTarjeta.value.trim()
         const descripcion = textAreaAgregar.value.trim()
@@ -98,7 +100,7 @@ function eventoForm(containerInput, btnAddCard) {
         }
     })
 
-    btnCancelar.addEventListener("click", () => {
+    btnCancelar.addEventListener(EVENT_CLICK, () => {
         containerInput.innerHTML = ""
         btnAddCard.style.display = "block"
     })
@@ -121,11 +123,11 @@ function renderCard(tarea, descripcion, columna) {
     const iconoEditar = nuevaTarjeta.querySelector(".icono-editar")
     const iconoBorrar = nuevaTarjeta.querySelector(".icono-borrar")
 
-    iconoBorrar.addEventListener("click", () => {
+    iconoBorrar.addEventListener(EVENT_CLICK, () => {
         columna.removeChild(nuevaTarjeta)
     })
 
-    iconoEditar.addEventListener("click", () => {
+    iconoEditar.addEventListener(EVENT_CLICK, () => {
         nuevaTarjeta.style.display = "none"
         renderFormEdit(tarea, descripcion, columna, nuevaTarjeta)
     })
@@ -154,7 +156,7 @@ function renderFormEdit(titulo, descripcion, columna, tarjeta) {
     const textAreaDescripcion = containerEdit.querySelector(".text-area--descripcion")
     const btnCancelar = containerEdit.querySelector(".btn-cancelar")
 
-    formularioEdit.addEventListener("submit", (e) => {
+    formularioEdit.addEventListener(EVENT_SUBMIT, (e) => {
         e.preventDefault()
         containerEdit.innerHTML = ""
         tarjeta.querySelector(".titulo-tarea").textContent = inputTarea.value
@@ -162,7 +164,7 @@ function renderFormEdit(titulo, descripcion, columna, tarjeta) {
         tarjeta.style.display = "flex"
     })
 
-    btnCancelar.addEventListener("click", () => {
+    btnCancelar.addEventListener(EVENT_CLICK, () => {
         containerEdit.innerHTML = ""
         tarjeta.style.display = "flex"
     })
