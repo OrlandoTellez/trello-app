@@ -9,9 +9,9 @@ function renderLista(nombreLista = "Nueva lista") {
     const div = document.createElement("div")
     div.classList.add("column")
     div.innerHTML = `
-        <article class="article-text">
-                
-                <h2>${nombreLista}</h2>
+        <article class="article-text">    
+            <p class="edit-name--lista">${nombreLista}</p>
+            <input class="input-edit" type="text" style="display: none;">
             <img class="icono-borrar" src="/assets/icons/trash.svg" alt="delete-icon">
         </article>
         <div class="container-edit"></div>
@@ -24,6 +24,31 @@ function renderLista(nombreLista = "Nueva lista") {
     const containerEdit = div.querySelector(".container-edit")
     const containerInput = div.querySelector(".container-input")
     const addCart = div.querySelector(".add-card")
+    const editNameLista = div.querySelector(".edit-name--lista")
+    const inputEdit = div.querySelector(".input-edit")
+
+    editNameLista.addEventListener("click", () => {
+        inputEdit.style.display = "block"
+        inputEdit.value = editNameLista.textContent
+        editNameLista.style.display = "none"
+        inputEdit.focus()
+        inputEdit.select()
+    })
+
+    inputEdit.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault()
+            editNameLista.textContent = inputEdit.value.trim() || "Nueva lista"
+            inputEdit.style.display = "none"
+            editNameLista.style.display = "block"
+        }
+    })
+
+    inputEdit.addEventListener("blur", () => {
+        editNameLista.textContent = inputEdit.value.trim() || "Nueva lista"
+        inputEdit.style.display = "none"
+        editNameLista.style.display = "block"
+    })
 
     addCart.addEventListener("click", () => {
         addCart.style.display = "none"
@@ -36,6 +61,7 @@ function renderLista(nombreLista = "Nueva lista") {
 
     div.dataset.columnRef = true
 }
+
 
 function renderFormCreate(containerInput, btnAddCard) {
     containerInput.innerHTML = `
