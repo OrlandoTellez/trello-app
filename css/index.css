@@ -1,7 +1,21 @@
+.app-container{
+  padding: 20px;
+}
+
+.header{
+  display: grid;
+  place-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.btn-agregar--lista{
+  width: 100%;
+}
+
 section{
   width: 100%;
   display: grid;
-  max-width: 500px;
 }
 
 .board {
@@ -33,7 +47,7 @@ section{
 
       && p{
         margin: 0;
-        font-size: 30px;
+        font-size: 25px;
         padding: 0px;
       }
 
@@ -43,23 +57,18 @@ section{
         resize: none;
         overflow: hidden;
         width: 100%;
-        max-width: 100%;
+        max-width: 190px;
         min-width: 50px;
         max-height: 35px;
         min-height: 35px;
         background-color: #2c2c2c;
-        outline:none;
-        font-size: 30px;
+        font-size: 25px;
         padding: 0px;
+        margin: 0px;
       }
     }
   }
-}
 
-.column h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
 
 .card {
   background-color: #3a3a3a;
@@ -166,6 +175,10 @@ section{
 }
 
 @media only screen and (min-width: 1024px) {
+  body{
+    display: flex;
+  }
+
   .board {
     flex-direction: row; 
     align-items: flex-start;
@@ -173,6 +186,13 @@ section{
     gap: 20px;
     overflow-x: auto; 
     width: 100%;
+  }
+
+  .header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .column{
