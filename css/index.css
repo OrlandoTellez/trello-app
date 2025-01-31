@@ -179,6 +179,10 @@ section{
     display: flex;
   }
 
+  .btn-agregar--lista{
+    width: 300px;
+  }
+
   .board {
     flex-direction: row; 
     align-items: flex-start;
