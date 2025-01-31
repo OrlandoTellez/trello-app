@@ -13,12 +13,12 @@ function renderLista(nombreLista = "Nueva lista") {
     div.setAttribute("draggable", "true")
     div.innerHTML = `
         <div class="drag-container--icon">
-            <img class="drag" src="/assets/icons/drag.svg">
+            <img class="drag" src="./assets/icons/drag.svg">
         </div>
         <article class="article-text">    
             <p class="edit-name--lista">${nombreLista}</p>
             <textarea class="input-edit"></textarea>
-            <img class="icono-borrar" src="/assets/icons/trash.svg" alt="delete-icon">
+            <img class="icono-borrar" src="./assets/icons/trash.svg" alt="delete-icon">
         </article>
         <div class="container-edit"></div>
         <div class="container-input"></div>
@@ -161,8 +161,8 @@ function renderCard(tarea, descripcion, columna) {
             <p class="descripcion-tarea">${descripcion}</p>
         </article>
         <div>
-            <img class="icono-editar" src="/assets/icons/edit.svg" alt="edit-icon">
-            <img class="icono-borrar" src="/assets/icons/trash.svg" alt="delete-icon">
+            <img class="icono-editar" src="./assets/icons/edit.svg" alt="edit-icon">
+            <img class="icono-borrar" src="./assets/icons/trash.svg" alt="delete-icon">
         </div>
     `
 
