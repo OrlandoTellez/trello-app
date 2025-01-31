@@ -13,7 +13,7 @@ function renderLista(nombreLista = "Nueva lista") {
     div.innerHTML = `
         <article class="article-text">    
             <p class="edit-name--lista">${nombreLista}</p>
-            <input class="input-edit" type="text" style="display: none;">
+            <textarea class="input-edit"></textarea>
             <img class="icono-borrar" src="/assets/icons/trash.svg" alt="delete-icon">
         </article>
         <div class="container-edit"></div>

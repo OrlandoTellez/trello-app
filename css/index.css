@@ -12,6 +12,7 @@ section{
   gap: 20px;
   overflow-x: auto;
   width: 100%;
+  padding-bottom:60px;
 }
 
 .column {
@@ -37,7 +38,15 @@ section{
       }
 
       && .input-edit{
+        font-family: Arial, sans-serif;
         display: none;
+        resize: none;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        min-width: 50px;
+        max-height: 35px;
+        min-height: 35px;
         background-color: #2c2c2c;
         outline:none;
         font-size: 30px;
@@ -67,7 +76,7 @@ section{
     display: flex;
     justify-content: right;
     width: 110px;
-    gap: 20px;
+    gap: 10px;
     && img {
       width: 30px;
       cursor: pointer;
