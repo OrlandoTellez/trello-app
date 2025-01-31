@@ -12,8 +12,9 @@ function renderLista(nombreLista = "Nueva lista") {
     div.classList.add("column")
     div.setAttribute("draggable", "true")
     div.innerHTML = `
-        <img class="drag" src="/assets/icons/drag.svg">
-
+        <div class="drag-container--icon">
+            <img class="drag" src="/assets/icons/drag.svg">
+        </div>
         <article class="article-text">    
             <p class="edit-name--lista">${nombreLista}</p>
             <textarea class="input-edit"></textarea>
@@ -24,7 +25,7 @@ function renderLista(nombreLista = "Nueva lista") {
         <button class="add-card">Add card</button>
     `
     tablero.appendChild(div)
-    
+
     div.querySelectorAll("img, button, textarea").forEach((elemento) => {
         elemento.setAttribute("draggable", "false")
     })

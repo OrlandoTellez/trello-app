@@ -18,11 +18,11 @@ section{
 .column {
   background-color: #2c2c2c;
   border-radius: 10px;
-  padding: 15px;
+  padding: 5px 15px;
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 15px;
+  gap: 5px;
   max-width: 100%;
 
   && .article-text{
@@ -160,8 +160,9 @@ section{
   width: 20px;
 }
 
-.board {
- 
+.drag-container--icon{
+  width: 100%;
+  text-align: center;
 }
 
 @media only screen and (min-width: 1024px) {
