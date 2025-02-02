@@ -1,5 +1,6 @@
 import { EVENT_CLICK, EVENT_SUBMIT } from "../utils/consts.js"
 import { renderCard } from "./card.js"
+import { saveBoardState } from "./lista.js"
 
 export function renderFormCreate(containerInput, btnAddCard) {
     containerInput.innerHTML = `
@@ -31,6 +32,7 @@ function eventoForm(containerInput, btnAddCard) {
             renderCard(tarea, descripcion, containerInput.closest(".column"))
             containerInput.innerHTML = ""
             btnAddCard.style.display = "block"
+            saveBoardState()
         } else {
             alert("Por favor escriba una tarea")
         }
@@ -41,7 +43,6 @@ function eventoForm(containerInput, btnAddCard) {
         btnAddCard.style.display = "block"
     })
 }
-
 
 export function renderFormEdit(titulo, descripcion, columna, tarjeta) {
     const containerEdit = columna.querySelector(".container-edit")
@@ -70,6 +71,7 @@ export function renderFormEdit(titulo, descripcion, columna, tarjeta) {
         tarjeta.querySelector(".titulo-tarea").textContent = inputTarea.value
         tarjeta.querySelector(".descripcion-tarea").textContent = textAreaDescripcion.value
         tarjeta.style.display = "flex"
+        saveBoardState()
     })
 
     btnCancelar.addEventListener(EVENT_CLICK, () => {

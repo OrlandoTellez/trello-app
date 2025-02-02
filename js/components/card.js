@@ -1,6 +1,6 @@
 import { EVENT_CLICK } from "../utils/consts.js"
-
 import { renderFormEdit } from "./formulario.js"
+import { saveBoardState } from "./lista.js"
 
 export function renderCard(tarea, descripcion, columna) {
     const nuevaTarjeta = document.createElement("div")
@@ -21,6 +21,7 @@ export function renderCard(tarea, descripcion, columna) {
 
     iconoBorrar.addEventListener(EVENT_CLICK, () => {
         columna.removeChild(nuevaTarjeta)
+        saveBoardState()
     })
 
     iconoEditar.addEventListener(EVENT_CLICK, () => {
@@ -29,4 +30,5 @@ export function renderCard(tarea, descripcion, columna) {
     })
 
     columna.appendChild(nuevaTarjeta)
+    saveBoardState()
 }

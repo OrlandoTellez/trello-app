@@ -1,6 +1,7 @@
 import { EVENT_CLICK, EVENT_BLUR, EVENT_KEYPRESS } from "../utils/consts.js"
 import { agregarEventosArrastre} from "./dragAndDrop.js"
 import { renderFormCreate } from "./formulario.js"
+import { renderCard } from "./card.js"
 
 const tablero = document.querySelector(".board")
 
@@ -28,7 +29,6 @@ export function renderLista(nombreLista = "Nueva lista") {
     })
     agregarEventosArrastre(div)
 
-
     const iconoBorrar = div.querySelector(".icono-borrar")
     const containerInput = div.querySelector(".container-input")
     const addCart = div.querySelector(".add-card")
@@ -49,6 +49,7 @@ export function renderLista(nombreLista = "Nueva lista") {
             editNameLista.textContent = inputEdit.value.trim() || "Nueva lista"
             inputEdit.style.display = "none"
             editNameLista.style.display = "block"
+            saveBoardState()
         }
     })
 
@@ -56,6 +57,7 @@ export function renderLista(nombreLista = "Nueva lista") {
         editNameLista.textContent = inputEdit.value.trim() || "Nueva lista"
         inputEdit.style.display = "none"
         editNameLista.style.display = "block"
+        saveBoardState()
     })
 
     addCart.addEventListener(EVENT_CLICK, () => {
@@ -65,7 +67,44 @@ export function renderLista(nombreLista = "Nueva lista") {
 
     iconoBorrar.addEventListener(EVENT_CLICK, () => {
         tablero.removeChild(div)
+        saveBoardState()
     })
 
     div.dataset.columnRef = true
+}
+
+export function saveBoardState() {
+    const columns = document.querySelectorAll(".column")
+    const boardState = []
+
+    columns.forEach(column => {
+        const columnName = column.querySelector(".edit-name--lista").textContent
+        const cards = column.querySelectorAll(".card")
+        const cardState = []
+
+        cards.forEach(card => {
+            const cardTitle = card.querySelector(".titulo-tarea").textContent
+            const cardDescription = card.querySelector(".descripcion-tarea").textContent
+            cardState.push({ title: cardTitle, description: cardDescription })
+        })
+
+        boardState.push({ name: columnName, cards: cardState })
+    })
+
+    localStorage.setItem("boardState", JSON.stringify(boardState))
+}
+
+export function loadBoardState() {
+    const boardState = JSON.parse(localStorage.getItem("boardState"))
+
+    if (boardState) {
+        boardState.forEach(column => {
+            renderLista(column.name)
+            const currentColumn = tablero.lastElementChild
+
+            column.cards.forEach(card => {
+                renderCard(card.title, card.description, currentColumn)
+            })
+        })
+    }
 }
